@@ -284,7 +284,7 @@ type DNS01Solver struct {
 	// *.example.com. We distinguish individual memories by
 	// the value of their TXT records, which should contain
 	// unique challenge tokens.
-	// See https://github.com/caddyserver/caddy/issues/3474.
+	// See https://github.com/xlp/caddy/issues/3474.
 	txtRecords   map[string][]dnsPresentMemory
 	txtRecordsMu sync.Mutex
 }

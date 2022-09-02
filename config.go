@@ -371,7 +371,7 @@ func (cfg *Config) manageOne(ctx context.Context, domainName string, async bool)
 			// presume it is safe to enqueue a duplicate obtain job because
 			// either the old one (or sometimes the new one) is about to be
 			// canceled. This seems like reasonable logic for any consumer
-			// of this lib. See https://github.com/caddyserver/caddy/issues/3202
+			// of this lib. See https://github.com/xlp/caddy/issues/3202
 			jm.Submit(cfg.Logger, "", obtain)
 			return nil
 		}

@@ -62,7 +62,7 @@ import (
 // implies imperfect mutual exclusion if locks become stale, but
 // that is probably less severe a consequence than infinite loops.
 //
-// See https://github.com/caddyserver/caddy/issues/4448 for discussion.
+// See https://github.com/xlp/caddy/issues/4448 for discussion.
 // See commit 468bfd25e452196b140148928cdd1f1a2285ae4b for where we
 // switched away from using .unlock files.
 type FileStorage struct {
@@ -325,7 +325,7 @@ func updateLockfileFreshness(filename string) (bool, error) {
 	// sync to device; we suspect that sometimes file systems
 	// (particularly AWS EFS) don't do this on their own,
 	// leaving the file empty when we close it; see
-	// https://github.com/caddyserver/caddy/issues/3954
+	// https://github.com/xlp/caddy/issues/3954
 	return false, f.Sync()
 }
 
@@ -348,7 +348,7 @@ func atomicallyCreateFile(filename string, writeLockInfo bool) error {
 		if err := json.NewEncoder(f).Encode(meta); err != nil {
 			return err
 		}
-		// see https://github.com/caddyserver/caddy/issues/3954
+		// see https://github.com/xlp/caddy/issues/3954
 		if err := f.Sync(); err != nil {
 			return err
 		}
